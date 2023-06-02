@@ -1,25 +1,44 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Tacostagram Final</title>
+    <title>Travel Log</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <link rel="stylesheet" href="/stylesheets/application.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
   </head>
-
+<div class="text-bg-light p-3">
   <body>
-    <div>
-      <%= flash["notice"] %>
+  <div class="position-relative">
+  <div class="d-flex justify-content-center"><h1>Travel Log</h1>
+  <img src="https://media.istockphoto.com/photos/travel-planning-background-picture-id1309040743?b=1&k=20&m=1309040743&s=170667a&w=0&h=eyIzT1oSW2B5gPMPqgybEseIYIUrY96cxPTE_B0ewVs=" width="100" height="60">
+  </div>
+  </div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-info">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item white">
+            <a class="btn btn-outline-light" href="/">Home</a>
+          </li>
+        </ul>
+         
+        <span class="navbar-text">
+          <% if @current_user %>
+            <li class="nav-item text-white">Logged in as: <%= @current_user["username"] %>       <a class="btn btn-outline-danger" href="/logout">Logout</a> </li>
+          <% else %>
+            <a class="btn btn-warning" href="/login">Login</a>
+            <a class="btn btn-outline-warning" href="/users/new">Signup</a>
+          <% end %>
+        </span>
+      </div>
     </div>
-    <div>
-      <a href="/">Home</a>
-      <a href="/logout">Logout</a>
-      <a href="/login">Login</a>
-      <a href="/users/new">Signup</a>
-    </div>
+</nav>
+
+
 
     <%= yield %>
+    <script scr="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"> </script>
   </body>
+</div>
 </html>
